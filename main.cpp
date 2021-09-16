@@ -1,25 +1,38 @@
-#include <fstream>
-#include <iterator>
-#include <Magick++.h> 
-#include <vector>
+#include "Vector.h"
 #include <iostream>
 
-
 int main() {
-       std::ifstream file ("C:\\Users\\ddoughan\\Documents\\Prog\\random-grid.jpg", std::ios::binary);
+    int time = 0;
+    int dt = 1;
+    float gravity = 9.8f;
+    int mass = 100;
+    float coef = 0.37f;
+    Vector P = Vector(0, 0, 4000);
+    Vector V = Vector(50, 0, 0);
+    Vector A = Vector(0, 0, 0);
 
-    std::istream_iterator<unsigned char> begin(file), end; 
+    while (time < 60) {
 
-    std::vector<unsigned int> buffer(begin,end); 
 
-    for(int i=0;i<buffer.size();i++){
-          std::cout<<buffer[i];
+        Vector vec = Vector(0, 0, 1) * -gravity;
+        //std::cout << "first part " << vec.x << " " << vec.y << " " << vec.z << std::endl;
+
+        vec = (V * V.norm() * coef) / mass;
+      //    std::cout << "first part " << vec.x << " " << vec.y << " " << vec.z << std::endl;
+
+        A = (Vector(0, 0, 1) * -gravity) - (V * V.norm() * coef) / mass;
+
+
+        V = V + A * dt;
+        P = P + V * dt;
+
+    std::cout << "Time " << time << std::endl;
+       std::cout << "Vitesse " << V.x << " " << V.y << " " << V.z << std::endl;
+                std::cout << "Acceleration " << A.x << " " << A.y << " " << A.z << std::endl;
+        std::cout << "Position " << P.x << " " << P.y << " " << P.z << std::endl;
+
+        
+     
+        time += dt;
     }
-     
-     
-
-       Image image; 
-   image.read(2,3,"RGB",CharPixel,pix);
-      image.write("result.png"); 
-
 }
