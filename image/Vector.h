@@ -1,3 +1,5 @@
+
+#ifndef VECTOR_H
 class Vector
 {
 private:
@@ -16,3 +18,5 @@ public:
     Vector normalize();
 
 };
+
+#endif
