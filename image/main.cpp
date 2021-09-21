@@ -47,16 +47,20 @@ int main() {
     Sphere sphere =  Sphere(25, Vector(50, 50, 50));
 
     for (int y = 0; y < largeur; y++) {
+        int profondeur = 1;
         for (int x = 0; x < longueur; x++) {
                 float intersection = intersect(Rayon(Vector(y, x, 0), Vector(0, 0, 1)), sphere);
                 if (intersection >= 0) {
-                    std::vector<int> pixel = {255, 255, 255};
+                    std::cout<< profondeur<< std::endl;
+                    std::vector<int> pixel = {(int)(4 * intersection), (int)(4 * intersection), (int)(4 * intersection)};
                     image[y][x].insert(image[y][x].begin(), pixel.begin(), pixel.end());
+                        profondeur += 1;
                 } else {
                     std::vector<int> pixel = {255, 0, 0};
                     image[y][x].insert(image[y][x].begin(), pixel.begin(), pixel.end());
                 }
         }
+ 
     }
 
     CreateImage(longueur, largeur, image, filename);
