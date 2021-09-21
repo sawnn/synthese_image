@@ -15,6 +15,5 @@ public:
     float dot(Vector);
     float norm();
     Vector normalize();
-    ~Vector();
 
 };

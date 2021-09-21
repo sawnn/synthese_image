@@ -9,30 +9,18 @@ int main() {
     float coef = 0.37f;
     Vector P = Vector(0, 0, 4000);
     Vector V = Vector(50, 0, 0);
-    Vector A = Vector(0, 0, 0);
+
 
     while (time < 60) {
-
-
-        Vector vec = Vector(0, 0, 1) * -gravity;
-        //std::cout << "first part " << vec.x << " " << vec.y << " " << vec.z << std::endl;
-
-        vec = (V * V.norm() * coef) / mass;
-      //    std::cout << "first part " << vec.x << " " << vec.y << " " << vec.z << std::endl;
-
-        A = (Vector(0, 0, 1) * -gravity) - (V * V.norm() * coef) / mass;
-
+        Vector A = (Vector(0, 0, 1) * -gravity) - (V * V.norm() * coef) / mass;
 
         V = V + A * dt;
         P = P + V * dt;
 
-    std::cout << "Time " << time << std::endl;
-       std::cout << "Vitesse " << V.x << " " << V.y << " " << V.z << std::endl;
-                std::cout << "Acceleration " << A.x << " " << A.y << " " << A.z << std::endl;
+        std::cout << "Time " << time << std::endl;
+        std::cout << "Vitesse " << V.x << " " << V.y << " " << V.z << std::endl;
+        std::cout << "Acceleration " << A.x << " " << A.y << " " << A.z << std::endl;
         std::cout << "Position " << P.x << " " << P.y << " " << P.z << std::endl;
-
-        
-     
         time += dt;
     }
 }

@@ -19,7 +19,7 @@ Vector Vector::operator+(Vector vec) {
 }
 
 Vector Vector::operator-(Vector vec) {
-    return Vector(vec.x - x, vec.y - y, vec.z - z);
+    return Vector(x - vec.x, y - vec.y, z - vec.z);
 }
 
 Vector Vector::operator*(float multiple) {
@@ -40,10 +40,4 @@ float Vector::norm() {
 
 Vector Vector::normalize() {
     return Vector(x / norm(), y / norm(), z / norm());
-}
-
-
-
-Vector::~Vector()
-{
 }
