@@ -9,10 +9,6 @@ Vector::Vector(float x, float y, float z)
     this->z = z;
 }
 
- Vector::Vector()
-{
-}
-   
 
 Vector Vector::operator+(Vector vec) {
     return Vector(vec.x + x, vec.y + y, vec.z + z);

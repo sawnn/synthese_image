@@ -1,5 +1,7 @@
-
+#define _USE_MATH_DEFINES
 #ifndef VECTOR_H
+
+#include <math.h>
 class Vector
 {
 private:
