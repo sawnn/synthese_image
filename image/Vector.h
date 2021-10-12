@@ -15,6 +15,7 @@ public:
     Vector operator-(Vector);
     Vector operator*(float);
     Vector operator/(float);
+    Vector cross(Vector);
     float dot(Vector);
     float norm();
     Vector normalize();
